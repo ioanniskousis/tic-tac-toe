@@ -5,9 +5,17 @@ puts 'Hello World!'
 keep_playing = true
 current_player = 1
 log = []
+available = [1,2,3,4,5,6,7,8,9]
+error_message = ""
 # Repeat the following tasks
 
 while keep_playing do
+  system("clear") || system("cls")
+  if error_message.size.positive?
+    puts error_message
+    puts
+    error_message = ""
+  end
 # Task 1 - Present the current status of the game to the players followed by prompts of what they have to do
 #          Draw the grid representing the tic-tac-toe game
 #          With symbols being checked at each cell
@@ -22,20 +30,21 @@ while keep_playing do
 #          Examine if the input of the player is available.
 #          If player's input is not valid, go back to (Task 1)
 #          If the player's input is valid, we change the game status by add the player's move to the log.
-  puts "Select cell number to put your symbol(1 - 9). Enter Z to end the the game"
+  puts "Select cell number to put your symbol #{available.to_s}. Enter Z to end the the game"
   choice = gets.chomp
   if choice.downcase == 'z'
     break   
    
-  elsif !(1..9).include?(choice.to_i)
-    puts "Wrong choice"
+  elsif !available.include?(choice.to_i)
+    error_message = "Wrong choice, play again!"
     next
   end
   if log.include?(choice.to_i)
-    puts "Cell already checked!"
+    error_message = "Cell already checked!"
     next
   end
   log << choice.to_i
+  available.delete(choice.to_i)
 
 # Task 3 - Examine if the current status gives a winner
 #          If yes, inform the players about it, and move to (Task 5)
@@ -50,6 +59,7 @@ while keep_playing do
       break
     end
     log = []
+    available = [1,2,3,4,5,6,7,8,9]
   end
 
 # Task 6 - if none of task 3 and 4 is true, we swap current player and return back to (Task 1)
