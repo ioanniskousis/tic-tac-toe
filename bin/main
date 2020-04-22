@@ -1,3 +1,59 @@
 #!/usr/bin/env ruby
 
 puts 'Hello World!'
+
+keep_playing = true
+current_player = 1
+log = []
+# Repeat the following tasks
+
+while keep_playing do
+# Task 1 - Present the current status of the game to the players followed by prompts of what they have to do
+#          Draw the grid representing the tic-tac-toe game
+#          With symbols being checked at each cell
+#          Prompt the players with what has to be done
+#          Providing available choices
+  puts "Player #{current_player} : Now you see the grid of Tic-tac-toe with played symbols in place\n"
+  puts "Played cells are : " + log.to_s
+
+# Task 2 - The current player checks an empty cell
+#          Each cell has an index number
+#          The player selects this number to point the cell to be checked
+#          Examine if the input of the player is available.
+#          If player's input is not valid, go back to (Task 1)
+#          If the player's input is valid, we change the game status by add the player's move to the log.
+  puts "Select cell number to put your symbol(1 - 9). Enter Z to end the the game"
+  choice = gets.chomp
+  if choice.downcase == 'z'
+    break   
+   
+  elsif !(1..9).include?(choice.to_i)
+    puts "Wrong choice"
+    next
+  end
+  if log.include?(choice.to_i)
+    puts "Cell already checked!"
+    next
+  end
+  log << choice.to_i
+
+# Task 3 - Examine if the current status gives a winner
+#          If yes, inform the players about it, and move to (Task 5)
+
+# Task 4 - Examine if all cells are filled
+
+# Task 5 - if task 3 or task 4 is true, game ends and ask the players if they want to play again
+  if log.count == 9
+    puts "Game over, play again? (y/n): "
+    choice = gets.chomp
+    if choice.downcase != 'y'
+      break
+    end
+    log = []
+  end
+
+# Task 6 - if none of task 3 and 4 is true, we swap current player and return back to (Task 1)
+current_player = current_player == 1 ? 2 : 1 
+
+end
+
