@@ -3,13 +3,13 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
-    
+
   DisplayCopNames: true
 
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 40
+  Max: 20
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -17,12 +17,7 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
   Max: 30
-Metrics/ModuleLength:
-  Max: 200
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
+
 
 Style/Documentation:
   Enabled: false
@@ -44,14 +39,14 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-
 Lint/RaiseException:
-  Enabled: true
+  Enabled: false
 Lint/StructNewOverride:
-  Enabled: true
+  Enabled: false
 Style/HashEachMethods:
-  Enabled: true
+  Enabled: false
 Style/HashTransformKeys:
-  Enabled: true
+  Enabled: false
 Style/HashTransformValues:
-  Enabled: true
+  Enabled: false
+  
