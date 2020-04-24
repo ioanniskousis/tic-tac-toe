@@ -1,9 +1,5 @@
 class Game
-  attr_reader :current_player
-  attr_reader :error_message
-  attr_reader :game_over
-  attr_reader :winner
-  attr_reader :grid
+  attr_reader :current_player, :error_message, :game_over, :winner, :grid
 
   def initialize
     @grid = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -56,27 +52,41 @@ class Game
   private
 
   def game_winner
-    row1 = []
-    row2 = []
-    row3 = []
-    col1 = []
-    col2 = []
-    col3 = []
-    dia1 = []
-    dia2 = []
-    row1 << @grid[0] << @grid[1] << @grid[2]
-    row2 << @grid[3] << @grid[4] << @grid[5]
-    row3 << @grid[6] << @grid[7] << @grid[8]
-    col1 << @grid[0] << @grid[3] << @grid[6]
-    col2 << @grid[1] << @grid[4] << @grid[7]
-    col3 << @grid[2] << @grid[5] << @grid[8]
-    dia1 << @grid[0] << @grid[4] << @grid[8]
-    dia2 << @grid[2] << @grid[4] << @grid[6]
+    row1 = prepare_row(0)
+    row2 = prepare_row(1)
+    row3 = prepare_row(2)
+
+    col1 = prepare_column(0)
+    col2 = prepare_column(1)
+    col3 = prepare_column(2)
+
+    dia1 = prepare_diagonal(1)
+    dia2 = prepare_diagonal(2)
+
     all_sets = [] << row1 << row2 << row3 << col1 << col2 << col3 << dia1 << dia2
     return 1 if all_sets.any? { |set| set.all?(1) }
-
     return 2 if all_sets.any? { |set| set.all?(2) }
 
     0
+  end
+
+  def prepare_row(row_num)
+    row = [] << @grid[row_num * 3] << @grid[(row_num * 3) + 1] << @grid[(row_num * 3) + 2]
+    row
+  end
+
+  def prepare_column(col_num)
+    col = [] << @grid[col_num] << @grid[col_num + 3] << @grid[col_num + 6]
+    col
+  end
+
+  def prepare_diagonal(diag_num)
+    diag = []
+    if diag_num == 1
+      diag << @grid[0] << @grid[4] << @grid[8]
+    else
+      diag << @grid[2] << @grid[4] << @grid[6]
+    end
+    diag
   end
 end

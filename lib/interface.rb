@@ -1,30 +1,63 @@
 class Interface
   def initialize
-
-  end
-
-  def create_line(line_num, arr)
-    case line_num
-    when 1, 3
-      return '-+-+-'
-    else 
-      line = ' | | '
-      arr_sub_index = line_num == 2 ? 1 : (line_num == 4 ? 2 : 0)
-      line[0] = 'x' if arr[arr_sub_index * 3] == 1
-      line[2] = 'x' if arr[(arr_sub_index * 3) + 1] == 1
-      line[4] = 'x' if arr[(arr_sub_index * 3) + 2] == 1
-
-      line[0] = 'O' if arr[arr_sub_index * 3] == 2
-      line[2] = 'O' if arr[(arr_sub_index * 3) + 1] == 2
-      line[4] = 'O' if arr[(arr_sub_index * 3) + 2] == 2
-      return line
-    end
+    @left_padding = '     '
   end
 
   def draw(arr)
-    array = []
-    5.times { |line| array << create_line(line, arr) }
+    array = [] << ''
+
+    array << header_line(0, arr)
+    array << check_line(0, arr)
+    array << padding_line
+
+    array << separator
+
+    array << header_line(1, arr)
+    array << check_line(1, arr)
+    array << padding_line
+
+    array << separator
+
+    array << header_line(2, arr)
+    array << check_line(2, arr)
+    array << padding_line
+
+    array << ''
     array
   end
 
+  private
+
+  def separator
+    @left_padding + '-----+-----+-----'
+  end
+
+  def header_line(line_num, arr)
+    line = '     |     |     '
+    line[0] = ((line_num * 3) + 1).to_s if arr[line_num * 3].zero?
+    line[6] = ((line_num * 3) + 2).to_s if arr[(line_num * 3) + 1].zero?
+    line[12] = ((line_num * 3) + 3).to_s if arr[(line_num * 3) + 2].zero?
+    @left_padding + line
+  end
+
+  def padding_line
+    @left_padding + '     |     |     '
+  end
+
+  def check_line(line_num, arr)
+    line = '  '
+    line << user_check(line_num * 3, arr)
+    line << '  |  '
+    line << user_check((line_num * 3) + 1, arr)
+    line << '  |  '
+    line << user_check((line_num * 3) + 2, arr)
+    @left_padding + line
+  end
+
+  def user_check(arr_index, arr)
+    return 'x' if arr[arr_index] == 1
+    return 'o' if arr[arr_index] == 2
+
+    ' '
+  end
 end

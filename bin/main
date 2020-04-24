@@ -6,7 +6,7 @@ game = Game.new
 interface = Interface.new
 
 loop do
-  system('clear') || system('cls')
+  system('cls') || system('clear')
   lines = interface.draw(game.grid)
   lines.each { |line| puts line }
   if game.error_message.size.positive?
@@ -15,9 +15,7 @@ loop do
     game.delete_error
   end
 
-  puts "Player #{game.current_player} : Now you see the grid of Tic-tac-toe with played symbols in place"
-  puts 'Played cells are : ' + game.log.to_s
-  puts game.grid.to_s
+  puts "Your turn Player #{game.current_player}"
 
   if game.game_over == true
     puts
@@ -31,7 +29,8 @@ loop do
 
     game.init
   else
-    puts "Select cell number to put your symbol #{game.available}. Enter Z to end the the game"
+    puts "Available cells #{game.available}"
+    puts 'Enter Z to end the the game'
     choice = gets.chomp
     break if choice.downcase == 'z'
 
