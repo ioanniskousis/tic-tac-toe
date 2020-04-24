@@ -5,8 +5,20 @@ require_relative '../lib/interface'
 game = Game.new
 interface = Interface.new
 
+instructions_given = false
+
 loop do
   system('cls') || system('clear')
+  unless instructions_given
+    puts "**GAME INSTRUCTIONS**"
+    puts "The goal of the game is to align your symbols in a row, column or diagonal"
+    puts "One player uses \"X\" and the other player uses \"O\""
+    puts "The game starts with player 1, if there is no winner, players are swaped."
+    puts "The winner becomes the second player if we continue to play."
+    puts
+    puts
+    instructions_given = true
+  end
   lines = interface.draw(game.grid)
   lines.each { |line| puts line }
   if game.error_message.size.positive?
@@ -14,8 +26,6 @@ loop do
     puts
     game.delete_error
   end
-
-  puts "Your turn Player #{game.current_player}"
 
   if game.game_over == true
     puts
@@ -29,6 +39,7 @@ loop do
 
     game.init
   else
+    puts "Your turn Player #{game.current_player}"
     puts "Available cells #{game.available}"
     puts 'Enter Z to end the the game'
     choice = gets.chomp
