@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
-require_relative '../game'
+require_relative '../lib/game'
+require_relative '../lib/interface'
 
 game = Game.new
+interface = Interface.new
 
 loop do
   system('clear') || system('cls')
+  lines = interface.draw(game.grid)
+  lines.each { |line| puts line }
   if game.error_message.size.positive?
     puts game.error_message
     puts
