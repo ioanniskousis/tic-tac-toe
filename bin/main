@@ -14,7 +14,9 @@ def show_instructions(centralizer)
   puts centralizer.centralize('The goal of the game is to align your symbols in a row, column or diagonal')
   puts centralizer.centralize('One player uses "X" and the other player uses "O"')
   puts centralizer.centralize('The game starts with player 1, if there is no winner, players are swaped.')
-  puts centralizer.centralize('The winner becomes the second player if we continue to play.\n\n')
+  puts centralizer.centralize('The winner becomes the second player if we continue to play')
+  puts
+  puts
 end
 
 def show_interface(interface, game, centralizer)
