@@ -9,50 +9,63 @@ centralizer = Centralizer.new
 
 instructions_given = false
 
+def show_instructions(centralizer)
+  puts centralizer.centralize('**GAME INSTRUCTIONS**')
+  puts centralizer.centralize('The goal of the game is to align your symbols in a row, column or diagonal')
+  puts centralizer.centralize('One player uses "X" and the other player uses "O"')
+  puts centralizer.centralize('The game starts with player 1, if there is no winner, players are swaped.')
+  puts centralizer.centralize('The winner becomes the second player if we continue to play.\n\n')
+end
+
+def show_interface(interface, game, centralizer)
+  lines = interface.draw(game.grid)
+  lines.each { |line| puts centralizer.centralize(line) }
+end
+
+def show_error(centralizer, game)
+  puts centralizer.centralize(game.error_message) + "\n"
+  game.delete_error
+end
+
+def handle_game_over(centralizer, game)
+  puts
+  if game.winner.positive?
+    puts centralizer.centralize("Player #{game.winner} is the winner! Do you want to play again? (y)")
+  else
+    puts centralizer.centralize('Game is Over! Do you want to play again? (y)')
+  end
+  print "\n" + centralizer.centralize('')
+  choice = gets.chomp
+  return true unless choice.downcase == 'y'
+
+  game.init
+  false
+end
+
+def get_user_input(centralizer, game)
+  puts "\n" + centralizer.centralize("Player #{game.current_player} : It\'s Your Turn\n")
+  puts centralizer.centralize("Available cells #{game.available}")
+  puts centralizer.centralize('Enter Z to end the game') + "\n\n"
+  print centralizer.centralize('')
+  choice = gets.chomp
+  return false if choice.downcase == 'z'
+
+  game.check(choice.to_i)
+  true
+end
+
 loop do
   system('cls') || system('clear')
   unless instructions_given
-    puts centralizer.centralize("**GAME INSTRUCTIONS**")
-    puts centralizer.centralize("The goal of the game is to align your symbols in a row, column or diagonal")
-    puts centralizer.centralize("One player uses \"X\" and the other player uses \"O\"")
-    puts centralizer.centralize("The game starts with player 1, if there is no winner, players are swaped.")
-    puts centralizer.centralize("The winner becomes the second player if we continue to play.")
-    puts
-    puts
+    show_instructions(centralizer)
     instructions_given = true
   end
-  lines = interface.draw(game.grid)
-  lines.each { |line| puts centralizer.centralize(line) }
-  if game.error_message.size.positive?
-    puts centralizer.centralize(game.error_message)
-    puts
-    game.delete_error
-  end
+  show_interface(interface, game, centralizer)
+  show_error(centralizer, game) if game.error_message.size.positive?
 
-  if game.game_over == true
-    puts
-    if game.winner.positive?
-      puts centralizer.centralize("Player #{game.winner} is the winner! Do you want to play again? (y)")
-    else
-      puts centralizer.centralize('Game is Over! Do you want to play again? (y)')
-    end
-    puts
-    print centralizer.centralize("")
-    choice = gets.chomp
-    break unless choice.downcase == 'y'
-
-    game.init
+  if game.game_over
+    break if handle_game_over(centralizer, game)
   else
-    puts
-    puts centralizer.centralize("Player #{game.current_player} : It's Your Turn")
-    puts
-    puts centralizer.centralize("Available cells #{game.available}")
-    puts centralizer.centralize('Enter Z to end the game')
-    puts
-    print centralizer.centralize("")
-    choice = gets.chomp
-    break if choice.downcase == 'z'
-
-    game.check(choice.to_i)
+    break unless get_user_input(centralizer, game)
   end
 end
