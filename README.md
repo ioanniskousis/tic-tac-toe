@@ -1,7 +1,7 @@
 # Demonstration of The Tic-Tac-Toe game made with Ruby language
 
 <p align="center">
-  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="200" height="200">
+  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
 </p>
 
 The game is played by two players.  
