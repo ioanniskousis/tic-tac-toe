@@ -4,15 +4,15 @@
   <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="200" height="200">
 </p>
 
-The game is played by two players.
-It provides a grid 3 x 3 cells, where each player inserts his/her own symbol, usually X or O.
-The players insert their symbol in rotation, one after the other; always choosing an empty cell.
-The player's goal is to align his/her symbol in a row, column or diagonal; this results to a game winner.
-The game may result to NO WINNER, in case there is no empty cell left and no pattern found.
-In our application, players can continue playing after 'game over' for another round; the winner always plays second after each round.
-In the case of NO WINNER, the players are swapped.
+The game is played by two players.  
+It provides a grid 3 x 3 cells, where each player inserts his/her own symbol, usually X or O.  
+The players insert their symbol in rotation, one after the other; always choosing an empty cell.  
+The player's goal is to align his/her symbol in a row, column or diagonal; this results to a game winner.  
+The game may result to NO WINNER, in case there is no empty cell left and no pattern found.  
+In our application, players can continue playing after 'game over' for another round; the winner always plays second after each round.  
+In the case of NO WINNER, the players are swapped.  
 
-In order to run the application, just type: "main" and press enter!
+In order to run the application, just type: "main" and press enter!  
 
 This is a project of the Microverse Ruby Course.
 
