@@ -1,4 +1,5 @@
-# Demonstration of The Tic-Tac-Toe game made with Ruby language
+# Demonstration of The Tic-Tac-Toe Game
+# Made With Ruby Language
 
 <p align="center">
   <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
@@ -77,7 +78,7 @@ The project consists of four code files
 - The 'bin' folder
 
 * main
-  The main is the executable file that consist of the game logic and every other class created.
+  The main is the executable file that controls the game logic.
 
 - The 'lib' folder
 
