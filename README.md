@@ -1,5 +1,5 @@
 # Demonstration of The Tic-Tac-Toe Game
-# Made With Ruby Language
+## Made With Ruby Language
 
 <p align="center">
   <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
