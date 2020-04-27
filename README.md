@@ -1,9 +1,18 @@
 # Demonstration of The Tic-Tac-Toe game made with Ruby language
 
-The game is played by two player
-The goal of the game is to align your symbols in a row, column or diagonal
-One player uses "X" and the other player uses "O"
-The game starts with player 1, if there is no winner, players are swaped
+<p align="center">
+  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="200" height="200">
+</p>
+
+The game is played by two players.
+It provides a grid 3 x 3 cells, where each player inserts his/her own symbol, usually X or O.
+The players insert their symbol in rotation, one after the other; always choosing an empty cell.
+The player's goal is to align his/her symbol in a row, column or diagonal; this results to a game winner.
+The game may result to NO WINNER, in case there is no empty cell left and no pattern found.
+In our application, players can continue playing after 'game over' for another round; the winner always plays second after each round.
+In the case of NO WINNER, the players are swapped.
+
+In order to run the application, just type: "main" and press enter!
 
 This is a project of the Microverse Ruby Course.
 
@@ -63,23 +72,29 @@ This is a project of the Microverse Ruby Course.
 
 ## About The Project
 
-The project consists of three code files
+The project consists of four code files
 
-In bin folder
-- main
+- The 'bin' folder
 
-in lib folder
-- game.rb
+* main
+  The main is the executable file that consist of the game logic and every other class created.
 
-- interface.rb
+- The 'lib' folder
 
-- centralizer.rb
+* game.rb
+  This class controls the status of the game. Checking the players moves and deciding the winner if any or if the game is over.
+
+* interface.rb
+  This class creates the appearance of the game showing the game board and instructions to users.
+
+* centralizer.rb
+  This class is basically a helper class to centralize the output in the center of the screen.
 
 <!-- ABOUT THE PROJECT -->
 
 ## Testing
 
-You may test the code either by running the 'main'
+In order to run the application, just type: "main" and press enter!
 
 ### Built With
 
@@ -88,6 +103,7 @@ This project was built using these technologies.
 - Ruby
 - Rubocop
 - VsCode
+- Git-Flow
 
 <!-- LIVE VERSION -->
 
