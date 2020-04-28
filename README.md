@@ -1,9 +1,5 @@
 # Demonstration of The Tic-Tac-Toe Game
 
-<p align="center">
-  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
-</p>
-
 <!--
 *** Thanks for checking out this README Template. If you have a suggestion that would
 *** make this better, please fork the repo and create a pull request or simply open
@@ -44,6 +40,11 @@
     <a href="https://github.com/ioanniskousis/tic-tac-toe/issues">Report Bug</a>
     <a href="https://github.com/ioanniskousis/tic-tac-toe/issues">Request Feature</a>
   </p>
+</p>
+
+
+<p align="center">
+  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
 </p>
 
 <!-- TABLE OF CONTENTS -->
