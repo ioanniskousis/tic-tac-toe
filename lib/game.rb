@@ -37,12 +37,6 @@ class Game
     true
   end
 
-  def log
-    arr = []
-    @grid.each_with_index { |x, i| arr << i + 1 if x.positive? }
-    arr
-  end
-
   def available
     arr = []
     @grid.each_with_index { |x, i| arr << i + 1 if x.zero? }
