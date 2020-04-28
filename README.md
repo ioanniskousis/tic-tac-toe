@@ -90,6 +90,15 @@ The project consists of four code files
 
 In our application, players can continue playing after 'game over' for another round; the winner always plays second after each round.  
 
+## Development
+* Clone the project
+```
+https://github.com/ioanniskousis/tic-tac-toe.git
+```
+* Run the Application
+
+In order to run the application, just type: `main` and press enter!  
+
 ## Testing
 
 In order to run the application, just type: "main" and press enter!
