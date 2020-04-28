@@ -43,6 +43,10 @@ class Game
     arr
   end
 
+  def get_grid
+    @grid
+  end
+  
   private
 
   def game_winner
