@@ -93,4 +93,46 @@ describe Game do
 
   end
 
+  describe "#winner" do
+
+    it "returns 0 since there is no winner yet after the third move" do
+      game.check(1)
+      game.check(2)
+      game.check(4)
+      expect(game.winner).to eq(0)
+    end
+
+    it "returns 0 since there is no winner yet after the sixth move" do
+      game.check(1)
+      game.check(2)
+      game.check(3)
+      game.check(4)
+      game.check(5)
+      game.check(6)
+      expect(game.winner).to eq(0)
+    end
+
+    it "returns 1 since player1 is the winner after the seventh move" do
+      game.check(1)
+      game.check(2)
+      game.check(3)
+      game.check(4)
+      game.check(5)
+      game.check(6)
+      game.check(7)
+      expect(game.winner).to eq(1)
+    end
+
+    it "returns 2 since player2 is the winner after the sixth move" do
+      game.check(2)
+      game.check(7)
+      game.check(1)
+      game.check(5)
+      game.check(9)
+      game.check(3)
+      expect(game.winner).to eq(2)
+    end
+    
+  end
+
 end
