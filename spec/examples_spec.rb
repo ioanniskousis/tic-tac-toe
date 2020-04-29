@@ -1,6 +1,6 @@
 require 'game'
 
-describe Game do
+RSpec.describe Game do
   let(:game) { Game.new }
 
   describe '#available' do
