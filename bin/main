@@ -31,8 +31,9 @@ end
 
 def handle_game_over(centralizer, game)
   puts
-  if game.winner.positive?
-    puts centralizer.centralize("Player #{game.winner} is the winner! Do you want to play again? (y)")
+  winner = game.winner
+  if winner.positive?
+    puts centralizer.centralize("Player #{winner} is the winner! Do you want to play again? (y)")
   else
     puts centralizer.centralize('Game is Over! Do you want to play again? (y)')
   end
@@ -40,7 +41,7 @@ def handle_game_over(centralizer, game)
   choice = gets.chomp
   return true unless choice.downcase == 'y'
 
-  game.init
+  game.reset
   false
 end
 

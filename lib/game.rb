@@ -1,18 +1,15 @@
 class Game
-  attr_reader :current_player, :error_message, :game_over, :winner, :grid
+  attr_reader :current_player, :error_message, :game_over, :grid
 
   def initialize
-    @grid = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     @current_player = 1
     @error_message = ''
-    @game_over = false
-    @winner = 0
+    reset
   end
 
-  def init
+  def reset
     @game_over = false
     @grid = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    @winner = 0
   end
 
   def delete_error
@@ -30,8 +27,7 @@ class Game
     end
 
     @grid[cell - 1] = @current_player
-    @winner = game_winner
-    @game_over = true if @winner.positive?
+    @game_over = true if winner.positive?
     @game_over = true if @grid.none?(0)
     @current_player = @current_player == 1 ? 2 : 1
     true
@@ -43,13 +39,7 @@ class Game
     arr
   end
 
-  def get_grid
-    @grid
-  end
-  
-  private
-
-  def game_winner
+  def winner
     row1 = prepare_row(0)
     row2 = prepare_row(1)
     row3 = prepare_row(2)
@@ -67,6 +57,8 @@ class Game
 
     0
   end
+
+  private
 
   def prepare_row(row_num)
     row = [] << @grid[row_num * 3] << @grid[(row_num * 3) + 1] << @grid[(row_num * 3) + 2]
