@@ -44,7 +44,7 @@
 
 
 <p align="center">
-  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="400" height="400">
+  <img src="images/tic-tac-toe.png" alt="Tic-Tac-Toe_ Game" width="639" height="504">
 </p>
 
 <!-- TABLE OF CONTENTS -->
