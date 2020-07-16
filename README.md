@@ -87,12 +87,12 @@ The project consists of four code files
   
 <!-- ABOUT THE PROJECT -->
 ## Game Rules
-* The game is played by two players.  
-* It provides a grid 3 x 3 cells, where each player inserts his/her own symbol, usually X or O.  
-* The players insert their symbol in rotation, one after the other; always choosing an empty cell.  
-* The player's goal is to align his/her symbol in a row, column or diagonal; this results to a game winner.  
-* The game may result to NO WINNER, in case there is no empty cell left and no pattern found.  
-* In the case of NO WINNER, the players are swapped.  
+* The game is played by two players  
+* It provides a grid 3 x 3 cells, where each player inserts his/her own symbol, usually X or O  
+* The players insert their symbol in rotation, one after the other; always choosing an empty cell  
+* The player's goal is to align his/her symbol in a row, column or diagonal; this results to a game winner  
+* The game may result to NO WINNER when there are no empty cells left and no pattern was found  
+* In the case of NO WINNER, the players are swapped  
 
 In our application, players can continue playing after 'game over' for another round; the winner always plays second after each round.  
 
