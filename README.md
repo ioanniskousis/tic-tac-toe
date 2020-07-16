@@ -52,6 +52,7 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
+- [Future Features](#future-features)
 - [Built With](#built-with)
 - [Live Version](#live-version)
 - [Acknowledgements](#acknowledgements)
@@ -79,6 +80,11 @@ The project consists of four code files
 * centralizer.rb
   This class is basically a helper class to centralize the output in the center of the screen.
 
+## Future Features
+  ### Following version may include
+  - Graphical User Interface
+  - Alternative images for players choises
+  
 <!-- ABOUT THE PROJECT -->
 ## Game Rules
 * The game is played by two players.  
